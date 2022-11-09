@@ -1,0 +1,5 @@
+falco.pem
+atelierreviews.pgsql
+aReviews/node_modules
+.DS_Store
+aReviews/.env
