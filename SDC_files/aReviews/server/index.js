@@ -72,6 +72,10 @@ app.put('/reviews/:reviewId/report', (req, res) => {
 }
 );
 
+app.get("/loaderio-f736a1b45b6b53e24250a58914dbf631", (req, res) => {
+  res.send("loaderio-f736a1b45b6b53e24250a58914dbf631");
+})
+
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}.`)
 });
