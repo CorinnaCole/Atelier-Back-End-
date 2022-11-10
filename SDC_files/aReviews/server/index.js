@@ -43,7 +43,7 @@ app.post('/reviews', (req, res)=> {
       res.sendStatus(200);
     })
     .catch(err => {
-      res.sendStatus(404);
+      res.sendStatus(400);
     })
 });
 
