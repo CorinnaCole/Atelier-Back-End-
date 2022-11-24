@@ -24,3 +24,17 @@ const getImages = async (aID) => {
   const getPhotos = await pool.query(`select id, url from answers_photo where answer_id = ${aID};`);
   return getPhotos.rows;
 }
+
+
+upstream backend {
+  server ec2-18-221-106-116.us-east-2.compute.amazonaws.com;
+  server ec2-3-144-178-155.us-east-2.compute.amazonaws.com;
+}
+
+server {
+  listen 80;
+
+  location / {
+      proxy_pass http://backend;
+  }
+}
