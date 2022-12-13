@@ -10,4 +10,5 @@ The front-end of the site is designed as a series of micro-services, each with i
 The existing data-set was pre-organized into several stand-alone traunches of (at the minimum) 15m+ records in csv files. Furthermore, each record had its own key/id to assist in the look up of associated records (i.e. a single product review may have multiple pictures uploaded by the reviewer). A SQL database was the logical choice for the new database given the data's relational structure.  I selected Postgres in a choice between that and MySQL for its json building capabilities and strongly supported (and free!) PgAdmin interface. 
 
 **<h2>2. Structure </h2>** 
+Below is a diagram of the Atelier Reviews database schema:
 
