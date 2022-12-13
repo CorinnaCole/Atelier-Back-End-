@@ -23,8 +23,6 @@ const getPhotos = async (reviewId) => {
 
 const getReviews = (req, res) => {
 
-  // let queryString = 'SELECT review_id, rating, summary, recommend, response, body, date, reviewer_name, helpfulness FROM reviews WHERE product_id=' + req.query.product_id + ' LIMIT 10';
-
   let queryString = 'SELECT * FROM (SELECT  r.review_id, r.rating, r.summary, r.recommend, r.response, r.body, to_timestamp(r.date/1000), r.reviewer_name, r.helpfulness, (SELECT json_agg(p) FROM (SELECT id, url FROM photos WHERE review_id = r.review_id) p) as photos FROM reviews as r WHERE product_id=' + req.query.product_id + ' AND r.reported=false) x;'
 
   return pool.query(queryString)
@@ -90,7 +88,6 @@ const postReview = (req, res) => {
   const time = new Date().valueOf()
 
   const { product_id, rating, summary, body, recommend, name, email, photos, characteristics } = req.body;
-  // console.log(`${product_id}, ${rating}, ${summary}, ${body}, ${recommend}, ${name}, ${email}, ${time}, ${photos}, ${characteristics}`);
 
   let queryString = `
     WITH new_review as (
@@ -120,34 +117,6 @@ const postReview = (req, res) => {
       throw err;
     })
 }
-
-// const postReview = (req, res) => {
-//   const time = new Date().valueOf()
-//   const { product_id, rating, summary, body, recommend, name, email, photos, characteristics } = req.body;
-//   // console.log(`${product_id}, ${rating}, ${summary}, ${body}, ${recommend}, ${name}, ${email}, ${time}, ${photos}, ${characteristics}`);
-
-//   let queryStringReviews = `
-//       INSERT INTO reviews
-//       (product_id, rating, summary, body, recommend, reviewer_name,  reviewer_email, date)
-//       VALUES
-//       (${product_id}, ${rating}, '${summary}', '${body}', ${recommend}, '${name}', '${email}', ${time})
-//       returning review_id;`
-
-//   return pool.query(queryStringReviews)
-//     .then(results => {
-//       console.log(results.rows);
-//       return results.rows[0].review_id;
-//     })
-//     .then(id => {
-//       let reviewIdArray = Array(req.body.photos.length).fill(id , 0);
-//       pool.query(`INSERT INTO photos (review_id, url) SELECT UNNEST('{${reviewIdArray}}' :: INTEGER []), UNNEST('{${req.body.photos}}' :: TEXT [])`);
-//       for (characteristic in req.body.characteristics) {
-//         pool.query(`INSERT INTO characteristicreviews (characteristic_id, review_id, value) VALUES(${characteristic}, ${id}, ${req.body.characteristics[characteristic]})`)};
-//     })
-//     .catch(err => {
-//       console.log(err, '< err inside postRevew')
-//     })
-// }
 
 const markReviewHelpful = (req, res) => {
   let id = req.params.reviewId;

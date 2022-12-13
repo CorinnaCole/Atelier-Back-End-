@@ -16,7 +16,6 @@ app.use(
 app.get('/reviews/', (req, res) => {
   getReviews(req, res)
     .then(results => {
-      // console.log(results, 'these are the app.get results')
       res.send(results)
     })
     .catch(err => {
@@ -29,7 +28,6 @@ app.get('/reviews/', (req, res) => {
 app.get('/reviews/meta', (req, res) => {
   getMetaData(req, res)
     .then(results => {
-      // console.log(results, 'these are the metaData results')
       res.send(results)
     })
     .catch(err => {
@@ -48,7 +46,6 @@ app.post('/reviews', (req, res)=> {
 });
 
 app.put('/reviews/:reviewId/helpful', (req, res) => {
-  // console.log(req.params.reviewId, 'req.params');
   markReviewHelpful(req, res)
     .then(results=> {
       res.sendStatus(200);
