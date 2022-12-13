@@ -11,4 +11,4 @@ The existing data-set was pre-organized into several stand-alone traunches of (a
 
 **<h2>2. Structure </h2>** 
 Below is a diagram of the Atelier Reviews database schema:
-
+![Schema Diagram](https://github.com/CorinnaCole/Atelier-Back-End-/blob/
