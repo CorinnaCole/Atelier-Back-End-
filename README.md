@@ -24,3 +24,8 @@ Below is a diagram of the Atelier Reviews database schema:
 *  *<span>Photos</span>*: The user has the option to upload photos as part of their review. This is a one-to-many relationship (i.e. one review record to many photos). The primary key from the Reviews table is a foriegn key, it is also an indexed relationship from Photos to Reviews.
 *  *<span>Characteristics</span>*: On the front-end, the user is invited to review the product on certain pre-set characteristics which are contingent on the product. For example, a pair of shoes may be rated on 'size' and 'width', but sunglasses may be only reviewed on 'style'. The Characteristics table links the product to each of the characteristics on which it may be rated. It is therefore a many-to-many relationship.
 *  *<span>Characteristics Reviews</span>*: This table links the reviewer's numeric ratings of all the product's characteristics to the rest of the review. Each row in this table accounts for the reviewer's score of a single characteristic, which is referenced using the charactertic id and connected to the specific review by the review_id.   
+
+**<h2>3. ETL Process </h2>**
+The data was provided in CSV files with cumulitively over 31m records. Minimal clean-up was required, other than the product_id required indexing to allow appropriate look-up as well as auto-incrementing to account for event that there were missing ids.
+
+
