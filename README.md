@@ -12,6 +12,6 @@ The existing data-set was pre-organized into several stand-alone traunches of (a
 **<h2>2. Structure </h2>** 
 Below is a diagram of the Atelier Reviews database schema:
 ![Schema Diagram](./SDC_files/aReviews/ReviewsSchemaDiagram.png) The database contains four tables: 
-* Reviews: This table contains most of the review content, such as their name, the product reviewed, and their written review.
-* Photos: The user has the option to upload photos as part of their review. This is a one-to-many relationship (i.e. one review record to many photos). The primary key from the Reviews table is a foriegn key, it is also an indexed relationship from Photos to Reviews.
-* CharacteristicReviews: On the front-end, the user is invited to review the product on certain pre-set characteristics which are contingent on the product. For example, a pair of shoes may be rated on size and width, but sunglasses may be only reviewed on style.  
+* **<h4>Reviews**</h4>**: This table contains most of the review content, such as their name, the product reviewed, and their written review.
+*  **<h4>Photos*</h4>**: The user has the option to upload photos as part of their review. This is a one-to-many relationship (i.e. one review record to many photos). The primary key from the Reviews table is a foriegn key, it is also an indexed relationship from Photos to Reviews.
+*  **<h4>CharacteristicReviews*</h4>**: On the front-end, the user is invited to review the product on certain pre-set characteristics which are contingent on the product. For example, a pair of shoes may be rated on size and width, but sunglasses may be only reviewed on style.  
