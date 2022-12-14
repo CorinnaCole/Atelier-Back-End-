@@ -12,7 +12,7 @@ The existing data-set was pre-organized into several stand-alone traunches of (a
 **<h2>2. Structure </h2>** 
 Below is a diagram of the Atelier Reviews database schema:
 ![Schema Diagram](./SDC_files/aReviews/ReviewsSchemaDiagram.png) The database contains four tables: 
-* *<span>Reviews**</span>*: This table contains most of the review content, such as their name, the product reviewed, and their written review.
-*  *<span>Photos*</span>*: The user has the option to upload photos as part of their review. This is a one-to-many relationship (i.e. one review record to many photos). The primary key from the Reviews table is a foriegn key, it is also an indexed relationship from Photos to Reviews.
+* *<span>Reviews</span>*: This table contains most of the review content, such as their name, the product reviewed, and their written review.
+*  *<span>Photos</span>*: The user has the option to upload photos as part of their review. This is a one-to-many relationship (i.e. one review record to many photos). The primary key from the Reviews table is a foriegn key, it is also an indexed relationship from Photos to Reviews.
 *  *<span>Characteristics</span>*: On the front-end, the user is invited to review the product on certain pre-set characteristics which are contingent on the product. For example, a pair of shoes may be rated on 'size' and 'width', but sunglasses may be only reviewed on 'style'. The Characteristics table links the product to each of the characteristics on which it may be rated. It is therefore a many-to-many relationship.
-*  *<span>Characteristics Reviews</span>*: This table links the reviewer's numeric ratings of all the product's characteristics to the rest of the review 
+*  *<span>Characteristics Reviews</span>*: This table links the reviewer's numeric ratings of all the product's characteristics to the rest of the review. Each row in this table accounts for the reviewer's score of a single characteristic, which is referenced using the charactertic id and connected to the specific review by the review_id.   
